@@ -101,6 +101,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GameStore.StoreDomain\GameStore.StoreDomain.csproj">
+      <Project>{2a2e30e3-4e92-4933-9a05-7c022daaff12}</Project>
+      <Name>GameStore.StoreDomain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GameStore\GameStore.csproj">
       <Project>{A1974698-F4E7-4375-A409-E1C68B2999D8}</Project>
       <Name>GameStore</Name>

@@ -127,7 +127,14 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
+    <Folder Include="Infrastructure\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GameStore.StoreDomain\GameStore.StoreDomain.csproj">
+      <Project>{2a2e30e3-4e92-4933-9a05-7c022daaff12}</Project>
+      <Name>GameStore.StoreDomain</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
