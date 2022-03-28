@@ -1,0 +1,2 @@
+G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.Domain\obj\Debug\GameStore.Domain.csprojAssemblyReference.cache
+G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.Domain\obj\Debug\GameStore.Domain.csproj.CoreCompileInputs.cache
