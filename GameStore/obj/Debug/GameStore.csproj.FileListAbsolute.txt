@@ -84,3 +84,8 @@ G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\obj\Debug\GameStore.dll
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\obj\Debug\GameStore.pdb
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\bin\GameStore.StoreDomain.dll
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\bin\GameStore.StoreDomain.pdb
+G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\bin\EntityFramework.dll
+G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\bin\EntityFramework.SqlServer.dll
+G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\bin\GameStore.StoreDomain.dll.config
+G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\bin\EntityFramework.xml
+G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\bin\EntityFramework.SqlServer.xml

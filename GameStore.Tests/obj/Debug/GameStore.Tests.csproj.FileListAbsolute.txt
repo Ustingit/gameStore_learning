@@ -43,3 +43,6 @@ G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.Tests\obj\Debug\GameStor
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.Tests\obj\Debug\GameStore.Tests.pdb
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.Tests\bin\Debug\GameStore.StoreDomain.dll
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.Tests\bin\Debug\GameStore.StoreDomain.pdb
+G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.Tests\bin\Debug\EntityFramework.dll
+G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.Tests\bin\Debug\GameStore.StoreDomain.dll.config
+G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.Tests\bin\Debug\EntityFramework.xml

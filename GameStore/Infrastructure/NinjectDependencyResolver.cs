@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using GameStore.StoreDomain.Abstract;
+using GameStore.StoreDomain.Concrete;
 using GameStore.StoreDomain.Entities;
 using Moq;
 using Ninject;
@@ -32,14 +33,7 @@ namespace GameStore.Infrastructure
 		
 		private void AddBindings()
 		{
-			Mock<IGameRepository> mock = new Mock<IGameRepository>();
-			mock.Setup(x => x.Games).Returns(new List<Game>()
-			{
-				new Game() { Name = "SimCity", Price = 1499 },
-				new Game() { Name = "TITANFALL", Price = 2299},
-				new Game() { Name = "Battlefield 4", Price = 889.4M } 
-			});
-			kernel.Bind<IGameRepository>().ToConstant(mock.Object);
+			kernel.Bind<IGameRepository>().To<EFGameRepository>();
 		}
 	}
 }

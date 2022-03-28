@@ -17,3 +17,9 @@ G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.StoreDomain\obj\Debug\Ga
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.StoreDomain\obj\Debug\GameStore.StoreDomain.csproj.CopyComplete
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.StoreDomain\obj\Debug\GameStore.StoreDomain.dll
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.StoreDomain\obj\Debug\GameStore.StoreDomain.pdb
+G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.StoreDomain\bin\Debug\GameStore.StoreDomain.dll.config
+G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.StoreDomain\bin\Debug\EntityFramework.dll
+G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.StoreDomain\bin\Debug\EntityFramework.SqlServer.dll
+G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.StoreDomain\bin\Debug\EntityFramework.xml
+G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.StoreDomain\bin\Debug\EntityFramework.SqlServer.xml
+G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.StoreDomain\obj\Debug\GameStore.StoreDomain.csprojAssemblyReference.cache
