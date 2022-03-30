@@ -9,11 +9,13 @@
 
 @foreach (var game in Model.Games)
 {
-    <div>
-        <h3>@game.Name</h3>
-        <p>@game.Description</p>
-        <h4>@game.Price.ToString("# руб")</h4>
+    <div class="well">
+        <h3>
+            <strong>@game.Name</strong>
+            <span class="pull-right label label-primary">@game.Price.ToString("# руб")</span>
+        </h3>
+        <span class="lead">@game.Description</span>
     </div>
 }
 
-<div>@Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x }))</div>
+<div class="btn-group pull-right">@Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x }))</div>
