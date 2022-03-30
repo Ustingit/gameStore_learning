@@ -9,6 +9,8 @@ namespace GameStore.Controllers
 {
     public class GameController : Controller
     {
+		public int pageSize = 4; //public for testable reasons
+
 	    private IGameRepository repository;
 
 	    public GameController(IGameRepository repo)
@@ -16,9 +18,11 @@ namespace GameStore.Controllers
 		    repository = repo;
 	    }
 
-	    public ViewResult List()
+	    public ViewResult List(int page = 1)
 	    {
-		    return View(repository.Games);
+		    var data = repository.Games.OrderBy(x => x.GameId).Skip((page - 1) * pageSize).Take(pageSize);
+
+			return View(data);
 	    }
     }
 }

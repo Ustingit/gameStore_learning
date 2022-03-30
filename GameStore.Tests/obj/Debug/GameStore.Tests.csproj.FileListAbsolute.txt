@@ -5,6 +5,7 @@ G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.Tests\bin\Debug\GameStor
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.Tests\bin\Debug\GameStore.Tests.dll
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.Tests\bin\Debug\GameStore.Tests.pdb
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.Tests\bin\Debug\GameStore.dll
+G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.Tests\bin\Debug\GameStore.StoreDomain.dll
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.Tests\bin\Debug\Microsoft.Web.Infrastructure.dll
@@ -19,6 +20,9 @@ G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.Tests\bin\Debug\System.W
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.Tests\bin\Debug\System.Web.WebPages.dll
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.Tests\bin\Debug\System.Web.WebPages.Razor.dll
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.Tests\bin\Debug\WebActivator.dll
+G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.Tests\bin\Debug\EntityFramework.dll
+G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.Tests\bin\Debug\GameStore.StoreDomain.pdb
+G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.Tests\bin\Debug\GameStore.StoreDomain.dll.config
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.Tests\bin\Debug\GameStore.pdb
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.Tests\bin\Debug\GameStore.dll.config
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
@@ -36,13 +40,9 @@ G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.Tests\bin\Debug\System.W
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.Tests\bin\Debug\System.Web.WebPages.xml
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.Tests\bin\Debug\System.Web.WebPages.Razor.xml
+G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.Tests\bin\Debug\EntityFramework.xml
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.Tests\obj\Debug\GameStore.Tests.csprojAssemblyReference.cache
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.Tests\obj\Debug\GameStore.Tests.csproj.CoreCompileInputs.cache
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.Tests\obj\Debug\GameStore.Tests.csproj.CopyComplete
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.Tests\obj\Debug\GameStore.Tests.dll
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.Tests\obj\Debug\GameStore.Tests.pdb
-G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.Tests\bin\Debug\GameStore.StoreDomain.dll
-G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.Tests\bin\Debug\GameStore.StoreDomain.pdb
-G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.Tests\bin\Debug\EntityFramework.dll
-G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.Tests\bin\Debug\GameStore.StoreDomain.dll.config
-G:\LEARNING\NET\ASP\professorweb\online_store\GameStore.Tests\bin\Debug\EntityFramework.xml

@@ -1,3 +1,4 @@
+G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\bin\roslyn\Microsoft.CodeAnalysis.dll
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\bin\GameStore.dll.config
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\bin\GameStore.dll
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\bin\GameStore.pdb
@@ -10,7 +11,6 @@ G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\bin\roslyn\csi.rsp
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\bin\roslyn\Microsoft.CodeAnalysis.dll
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\bin\roslyn\Microsoft.CSharp.Core.targets
@@ -50,6 +50,9 @@ G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\bin\roslyn\vbc.exe.confi
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\bin\roslyn\vbc.rsp
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\bin\roslyn\VBCSCompiler.exe
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\bin\roslyn\VBCSCompiler.exe.config
+G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\bin\EntityFramework.dll
+G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\bin\EntityFramework.SqlServer.dll
+G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\bin\GameStore.StoreDomain.dll
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\bin\Microsoft.Web.Infrastructure.dll
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\bin\Moq.dll
@@ -63,6 +66,10 @@ G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\bin\System.Web.Webpages.
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\bin\System.Web.Webpages.dll
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\bin\System.Web.Webpages.Razor.dll
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\bin\WebActivator.dll
+G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\bin\GameStore.StoreDomain.pdb
+G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\bin\GameStore.StoreDomain.dll.config
+G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\bin\EntityFramework.xml
+G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\bin\EntityFramework.SqlServer.xml
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\bin\Moq.xml
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\bin\Ninject.pdb
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\bin\Ninject.xml
@@ -82,10 +89,3 @@ G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\obj\Debug\GameStore.cspr
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\obj\Debug\GameStore.csproj.CopyComplete
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\obj\Debug\GameStore.dll
 G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\obj\Debug\GameStore.pdb
-G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\bin\GameStore.StoreDomain.dll
-G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\bin\GameStore.StoreDomain.pdb
-G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\bin\EntityFramework.dll
-G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\bin\EntityFramework.SqlServer.dll
-G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\bin\GameStore.StoreDomain.dll.config
-G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\bin\EntityFramework.xml
-G:\LEARNING\NET\ASP\professorweb\online_store\GameStore\bin\EntityFramework.SqlServer.xml
