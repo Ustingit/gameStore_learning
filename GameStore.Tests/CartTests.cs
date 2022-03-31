@@ -17,6 +17,85 @@ namespace GameStore.Tests
 	public class CartTests
 	{
 		[TestMethod]
+		public void Cannot_Checkout_Invalid_ShippingDetails()
+		{
+			//arrange
+			var mock = new Mock<IOrderProcessor>();
+
+			Cart cart = new Cart();
+			cart.AddItem(new Game(), 1);
+
+			CartController controller = new CartController(null, mock.Object);
+
+			// Организация — добавление ошибки в модель
+			controller.ModelState.AddModelError("error", "error");
+
+			//action
+			var result = controller.Checkout(cart, new ShippingDetails());
+
+			//assert
+
+			//проверка, что заказ не передается обработчику
+			mock.Verify(x => x.ProcessOrder(It.IsAny<Cart>(), It.IsAny<ShippingDetails>()), Times.Never());
+
+			//проверка, что метод вернул стандартное представление
+			Assert.AreEqual("", result.ViewName);
+
+			//проверка, что-представлению передана неверная модель
+			Assert.AreEqual(false, result.ViewData.ModelState.IsValid);
+		}
+
+		[TestMethod]
+		public void Cannot_Checkout_Empty_Cart()
+		{
+			//arrange
+			var orderProcessorMock = new Mock<IOrderProcessor>();
+			var cart = new Cart();
+			var shippingDetails = new ShippingDetails();
+			var controller = new CartController(null, orderProcessorMock.Object);
+
+			//action
+			var result = controller.Checkout(cart, shippingDetails);
+
+			//assert
+
+			// проверка, что заказ не был передан обработчику 
+			orderProcessorMock.Verify(m => m.ProcessOrder(It.IsAny<Cart>(), It.IsAny<ShippingDetails>()), Times.Never());
+
+			//проверка, что метод вернул стандартное представление 
+			Assert.AreEqual("", result.ViewName);
+
+			//проверка, что-представлению передана неверная модель
+			Assert.AreEqual(false, result.ViewData.ModelState.IsValid);
+		}
+
+		[TestMethod]
+		public void Can_Checkout_And_Submit_Order()
+		{
+			//arrange
+			var mock = new Mock<IOrderProcessor>();
+
+			Cart cart = new Cart();
+			cart.AddItem(new Game(), 1);
+
+			var controller = new CartController(null, mock.Object);
+
+			//action
+			var result = controller.Checkout(cart, new ShippingDetails());
+
+			//assert
+
+			//проверка, что заказ передан обработчику
+			mock.Verify(x => x.ProcessOrder(It.IsAny<Cart>(), It.IsAny<ShippingDetails>()), Times.Once());
+
+			//проверка, что метод возвращает представление 
+			Assert.AreEqual("Completed", result.ViewName);
+
+			//проверка, что представлению передается допустимая модель
+			Assert.AreEqual(true, result.ViewData.ModelState.IsValid);
+		}
+
+		[TestMethod]
 		public void Can_Add_New_Lines()
 		{
 			//arrange
@@ -134,7 +213,7 @@ namespace GameStore.Tests
 
 			var cart = new Cart();
 
-			var controller = new CartController(mock.Object);
+			var controller = new CartController(mock.Object, null);
 
 			//action
 			controller.AddToCart(cart, 1, null);
@@ -158,7 +237,7 @@ namespace GameStore.Tests
 			}.AsQueryable());
 
 			var cart = new Cart();
-			var controller = new CartController(mock.Object);
+			var controller = new CartController(mock.Object, null);
 
 			//action
 			RedirectToRouteResult result = controller.AddToCart(cart, 2, "myUrl");
@@ -173,7 +252,7 @@ namespace GameStore.Tests
 		{
 			//arrange
 			Cart cart = new Cart();
-			CartController target = new CartController(null);
+			CartController target = new CartController(null, null);
 
 			//action
 			var result = (CartIndexViewModel) target.Index(cart, "myUrl").ViewData.Model;
