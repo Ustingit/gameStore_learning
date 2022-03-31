@@ -3,8 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
+using GameStore.Controllers;
+using GameStore.Models;
+using GameStore.StoreDomain.Abstract;
 using GameStore.StoreDomain.Entities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 
 namespace GameStore.Tests
 {
@@ -112,6 +117,70 @@ namespace GameStore.Tests
 
 			//assert
 			Assert.AreEqual(cart.Lines.Count(), 0, "The cart was not cleared");
+		}
+
+		/// <summary>
+		/// Проверяем добавление в корзину
+		/// </summary>
+		[TestMethod]
+		public void Can_Add_To_Cart()
+		{
+			//arrange
+			var mock = new Mock<IGameRepository>();
+			mock.Setup(x => x.Games).Returns(new List<Game>()
+			{
+				new Game {GameId = 1, Name = "Игра1", Category = "Кат1"},
+			}.AsQueryable());
+
+			var cart = new Cart();
+
+			var controller = new CartController(mock.Object);
+
+			//action
+			controller.AddToCart(cart, 1, null);
+
+			//assert
+			Assert.AreEqual(cart.Lines.Count(), 1);
+			Assert.AreEqual(cart.Lines.ToList()[0].Game.GameId, 1);
+		}
+
+		/// <summary>
+		/// После добавления игры в корзину, должно быть перенаправление на страницу корзины
+		/// </summary>
+		[TestMethod]
+		public void Adding_Game_To_Cart_Goes_To_Cart_Screen()
+		{
+			//arrange
+			var mock = new Mock<IGameRepository>();
+			mock.Setup(x => x.Games).Returns(new List<Game>()
+			{
+				new Game {GameId = 1, Name = "Игра1", Category = "Кат1"},
+			}.AsQueryable());
+
+			var cart = new Cart();
+			var controller = new CartController(mock.Object);
+
+			//action
+			RedirectToRouteResult result = controller.AddToCart(cart, 2, "myUrl");
+
+			//assert
+			Assert.AreEqual(result.RouteValues["action"], "Index");
+			Assert.AreEqual(result.RouteValues["returnUrl"], "myUrl");
+		}
+
+		[TestMethod]
+		public void Can_View_Cart_Contents()
+		{
+			//arrange
+			Cart cart = new Cart();
+			CartController target = new CartController(null);
+
+			//action
+			var result = (CartIndexViewModel) target.Index(cart, "myUrl").ViewData.Model;
+
+			//assert
+			Assert.AreSame(result.Cart, cart);
+			Assert.AreEqual(result.ReturnUrl, "myUrl");
 		}
 	}
 }

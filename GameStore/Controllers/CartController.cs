@@ -9,7 +9,11 @@ using GameStore.StoreDomain.Entities;
 
 namespace GameStore.Controllers
 {
-    public class CartController : Controller
+	/// <summary>
+	/// Note about session: Нам нравится использовать средство состояния сеанса в контроллере Cart для хранения и управления объектами Cart, созданными в предыдущей статье, но нас не устраивает способ, которым это должно делаться. Он не вписывается в остальные части модели приложения, которые основаны на параметрах методов действий. Мы не можем провести исчерпывающее модульное тестирование класса CartController до тех пор, пока не построим имитацию параметра Session базового класса, а это означает имитацию класса Controller и множество других вещей, с которыми лучше не связываться.
+	/// </summary>
+	/// <returns></returns>
+	public class CartController : Controller
     {
 	    private IGameRepository repository;
 
@@ -18,52 +22,37 @@ namespace GameStore.Controllers
 		    repository = repo;
 	    }
 
-	    public ViewResult Index(string returnUrl)
+	    public ViewResult Index(Cart cart, string returnUrl)
 	    {
 		    return View(new CartIndexViewModel()
 		    {
 				ReturnUrl = returnUrl,
-				Cart = GetCart()
+				Cart = cart
 		    });
 	    }
 
-	    public RedirectToRouteResult AddToCart(int gameId, string returnUrl)
+	    public RedirectToRouteResult AddToCart(Cart cart, int gameId, string returnUrl)
 	    {
 		    var existGame = repository.Games.FirstOrDefault(g => g.GameId == gameId);
 
 		    if (existGame != null)
 		    {
-				GetCart().AddItem(existGame, 1);
+				cart.AddItem(existGame, 1);
 		    }
 
 		    return RedirectToAction("Index", new {returnUrl});
 	    }
 
-	    public RedirectToRouteResult RemoveFromCart(int gameId, string returnUrl)
+	    public RedirectToRouteResult RemoveFromCart(Cart cart, int gameId, string returnUrl)
 	    {
 		    var existGame = repository.Games.FirstOrDefault(g => g.GameId == gameId);
 
 		    if (existGame != null)
 		    {
-				GetCart().RemoveLine(existGame);
+			    cart.RemoveLine(existGame);
 		    }
 
 		    return RedirectToAction("Index", new { returnUrl });
-	    }
-
-	    private Cart GetCart()
-	    {
-		    var cart = (Cart) Session["Cart"];
-
-		    if (cart != null)
-		    {
-			    return cart;
-		    }
-
-		    var newCart = new Cart();
-		    Session["Cart"] = newCart;
-
-		    return new Cart();
 	    }
     }
 }
