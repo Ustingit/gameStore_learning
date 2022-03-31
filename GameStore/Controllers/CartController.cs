@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls.WebParts;
 using GameStore.Models;
 using GameStore.StoreDomain.Abstract;
 using GameStore.StoreDomain.Entities;
@@ -29,6 +30,11 @@ namespace GameStore.Controllers
 				ReturnUrl = returnUrl,
 				Cart = cart
 		    });
+	    }
+
+	    public PartialViewResult Summary(Cart cart)
+	    {
+		    return PartialView(cart);
 	    }
 
 	    public RedirectToRouteResult AddToCart(Cart cart, int gameId, string returnUrl)
