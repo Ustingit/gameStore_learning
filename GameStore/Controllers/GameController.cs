@@ -19,16 +19,21 @@ namespace GameStore.Controllers
 		    repository = repo;
 	    }
 
-	    public ViewResult List(int page = 1)
+	    public ViewResult List(string category, int page = 1)
 	    {
 			var model = new GamesListViewModel()
 			{
-				Games = repository.Games.OrderBy(x => x.GameId).Skip((page - 1) * pageSize).Take(pageSize),
+				CurrentCategory = category,
+				Games = category == null 
+					? repository.Games.OrderBy(x => x.GameId).Skip((page - 1) * pageSize).Take(pageSize)
+					: repository.Games.Where(x => x.Category == null || x.Category == category).OrderBy(x => x.GameId).Skip((page - 1) * pageSize).Take(pageSize),
 				PagingInfo = new PagingInfo()
 				{
 					CurrentPage = page,
 					ItemsPerPage = pageSize,
-					TotalItems = repository.Games.Count()
+					TotalItems = category == null 
+						? repository.Games.Count() 
+						: repository.Games.Count(game => game.Category == category)
 				}
 			};
 
