@@ -32,6 +32,11 @@ namespace GameStore.Controllers
 		    });
 	    }
 
+	    public ViewResult Checkout(Cart cart, ShippingDetails shippingDetails)
+	    {
+		    return View(new ShippingDetails());
+	    }
+
 	    public PartialViewResult Summary(Cart cart)
 	    {
 		    return PartialView(cart);
