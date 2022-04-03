@@ -16,13 +16,16 @@ namespace GameStore.Controllers
 		    repository = repo;
 	    }
 
-	    public PartialViewResult Menu(string category = null)
+	    public PartialViewResult Menu(string category = null, bool horizontalNav = false)
 	    {
 		    ViewBag.SelectedCategory = category;
 
 		    var categories = repository.Games.Select(g => g.Category).Distinct().OrderBy(c => c);
 
-		    return PartialView(categories);
+			var viewName = horizontalNav 
+				? "MenuHorizontal" 
+				: "Menu";
+			return PartialView(viewName, categories);
 	    }
     }
 }
