@@ -9,5 +9,7 @@ namespace GameStore.StoreDomain.Abstract
 		IEnumerable<Game> Games { get; }
 
 		void Save(Game game);
+
+		Game Delete(int gameId);
 	}
 }

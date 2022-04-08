@@ -16,6 +16,32 @@ namespace GameStore.Tests
 	public class AdminTests
 	{
 		[TestMethod]
+		public void Can_Delete_Valid_Games()
+		{
+			//arrange
+			var game = new Game() { GameId = 2, Name = "Игра2" };
+			var mock = new Mock<IGameRepository>();
+			mock.Setup(x => x.Games).Returns(new List<Game>()
+			{
+				new Game { GameId = 1, Name = "Игра1"},
+				new Game { GameId = 2, Name = "Игра2"},
+				new Game { GameId = 3, Name = "Игра3"},
+				new Game { GameId = 4, Name = "Игра4"},
+				new Game { GameId = 5, Name = "Игра5"}
+			});
+
+			var controller = new AdminController(mock.Object);
+
+			//action
+			controller.Delete(game.GameId);
+
+			//assert
+			// Утверждение - проверка того, что метод удаления в хранилище
+			// вызывается для корректного объекта Game
+			mock.Verify(x => x.Delete(game.GameId));
+		}
+
+		[TestMethod]
 		public void Cannot_Save_Invalid_Changes()
 		{
 			//arrange

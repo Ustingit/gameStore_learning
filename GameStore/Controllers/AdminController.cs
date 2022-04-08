@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using GameStore.StoreDomain.Abstract;
 using GameStore.StoreDomain.Entities;
 
@@ -22,6 +23,11 @@ namespace GameStore.Controllers
         public ViewResult Index()
         {
             return View(repository.Games);
+        }
+
+        public ViewResult Create()
+        {
+	        return View("Edit", new Game());
         }
 
         public ViewResult Edit(int gameId)
@@ -43,6 +49,19 @@ namespace GameStore.Controllers
 	        }
 
 	        return View(game);
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int gameId)
+        {
+	        var game = repository.Delete(gameId);
+
+	        if (game != null)
+	        {
+                TempData["message"] = string.Format("Игра \"{0}\" была удалена", game.Name);
+            }
+
+	        return RedirectToAction("Index");
         }
     }
 }
