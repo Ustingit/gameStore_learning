@@ -21,5 +21,12 @@ namespace GameStore.Controllers
         {
             return View(repository.Games);
         }
+
+        public ViewResult Edit(int gameId)
+        {
+	        var game = repository.Games.FirstOrDefault(x => x.GameId == gameId);
+
+	        return View(game);
+        }
     }
 }
