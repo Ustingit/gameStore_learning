@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 using GameStore.Controllers;
 using GameStore.StoreDomain.Abstract;
 using GameStore.StoreDomain.Entities;
@@ -14,6 +15,46 @@ namespace GameStore.Tests
 	[TestClass]
 	public class AdminTests
 	{
+		[TestMethod]
+		public void Cannot_Save_Invalid_Changes()
+		{
+			//arrange
+			var mock = new Mock<IGameRepository>();
+			var controller = new AdminController(mock.Object);
+			var game = new Game() { Name = "Test" };
+			
+			controller.ModelState.AddModelError("error", "error");
+
+			//action
+			var result = controller.Edit(game);
+
+			//assert
+			// Утверждение - проверка того, что обращение к хранилищу НЕ производится 
+			mock.Verify(x => x.Save(It.IsAny<Game>()), Times.Never());
+
+			// Утверждение - проверка типа результата метода
+			Assert.IsInstanceOfType(result, typeof(ViewResult));
+		}
+
+		[TestMethod]
+		public void Can_Save_Valid_Changes()
+		{
+			//arrange
+			var mock = new Mock<IGameRepository>();
+			var controller = new AdminController(mock.Object);
+			var game = new Game() { Name = "Test" };
+
+			//action
+			var result = controller.Edit(game);
+
+			//assert
+			// Утверждение - проверка того, что к хранилищу производится обращение
+			mock.Verify(x => x.Save(game));
+
+			// Утверждение - проверка типа результата метода
+			Assert.IsNotInstanceOfType(result, typeof(ViewResult));
+		}
+
 		[TestMethod]
 		public void Can_Edit_Game()
 		{

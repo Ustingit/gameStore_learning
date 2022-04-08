@@ -13,5 +13,27 @@ namespace GameStore.StoreDomain.Concrete
 		{
 			get { return context.Games; }
 		}
+
+		public void Save(Game game)
+		{
+			if (game.GameId == 0)
+			{
+				context.Games.Add(game);
+			}
+			else
+			{
+				var dbEntry = context.Games.Find(game.GameId);
+
+				if (dbEntry != null)
+				{
+					dbEntry.Name = game.Name;
+					dbEntry.Description = game.Description;
+					dbEntry.Price = game.Price;
+					dbEntry.Category = game.Category;
+				}
+			}
+
+			context.SaveChanges();
+		}
 	}
 }

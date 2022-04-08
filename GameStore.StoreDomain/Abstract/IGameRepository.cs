@@ -7,5 +7,7 @@ namespace GameStore.StoreDomain.Abstract
 	public interface IGameRepository
 	{
 		IEnumerable<Game> Games { get; }
+
+		void Save(Game game);
 	}
 }
