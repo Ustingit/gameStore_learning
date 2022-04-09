@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
@@ -10,6 +8,7 @@ using GameStore.StoreDomain.Entities;
 
 namespace GameStore.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
 	    private IGameRepository repository;
