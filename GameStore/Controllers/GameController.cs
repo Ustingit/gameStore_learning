@@ -39,5 +39,17 @@ namespace GameStore.Controllers
 
 			return View(model);
 	    }
+
+	    public FileContentResult GetImage(int gameId)
+	    {
+		    var game = repository.Games.FirstOrDefault(g => g.GameId == gameId);
+
+		    if (game != null)
+		    {
+			    return File(game.ImageData, game.ImageMimeType);
+		    }
+
+			return null;
+		}
     }
 }

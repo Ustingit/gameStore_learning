@@ -9,32 +9,63 @@
     <div class="panel-heading">
         <h3>Редактирование игры «@Model.Name»</h3>
     </div>
-    @using (Html.BeginForm("Edit", "Admin"))
+
+    @using (Html.BeginForm("Edit", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         <div class="panel-body">
             @Html.HiddenFor(x => x.GameId)
             @foreach (var property in ViewData.ModelMetadata.Properties)
             {
-                if (property.PropertyName != "GameId")
+                switch (property.PropertyName)
                 {
-                    <div class="form-group">
-                        <label>@(property.DisplayName ?? property.PropertyName)</label>
-                        @if (property.PropertyName == "Description")
-                        {
-                            @Html.TextArea(property.PropertyName, null, new { @class = "form-control", rows = 5 })
-                        }
-                        else
-                        {
-                            @Html.TextBox(property.PropertyName, null, new { @class = "form-control" })
-                        }
-                        @Html.ValidationMessage(property.PropertyName)
-                    </div>
+                    case "GameId":
+                    case "ImageData":
+                    case "ImageMimeType":
+                        // Ничего не делать
+                        break;
+                    default:
+                        <div class="form-group">
+                            <label>@(property.DisplayName ?? property.PropertyName)</label>
+                            @if (property.PropertyName == "Description")
+                            {
+                                @Html.TextArea(property.PropertyName, null,
+                                    new { @class = "form-control", rows = 5 })
+                            }
+                            else
+                            {
+                                @Html.TextBox(property.PropertyName, null,
+                                    new { @class = "form-control" })
+                            }
+                            @Html.ValidationMessage(property.PropertyName)
+                        </div>
+                        break;
                 }
             }
+            <div class="form-group">
+                <div style="position:relative">
+                    <label>Картинка</label>
+                    <a class='btn' href='javascript:;'>
+                        Выберите файл...
+                        <input type="file" name="Image" size="40"
+                               onchange='$("#upload-file-info").html($(this).val());'
+                               style='position: absolute; z-index: 2; top: 0; left: 0; filter: alpha(opacity=0); opacity: 0; background-color: transparent; color: transparent;' />
+                    </a>
+                    <span class="label label-info" id="upload-file-info"></span>
+                </div>
+                @if (Model.ImageData == null)
+                {
+                    <div class="form-control-static">Нет картинки</div>
+                }
+                else
+                {
+                    <img class="img-thumbnail" height="150" width="150" src="@Url.Action("GetImage", "Game", new { Model.GameId })" />
+                }
+            </div>
         </div>
         <div class="panel-footer">
             <input type="submit" value="Сохранить" class="btn btn-primary" />
-            @Html.ActionLink("Отменить изменения и вернуться к списку", "Index", null, new { @class = "btn btn default" })
+            @Html.ActionLink("Отменить изменения и вернуться к списку", "Index", null, new { @class = "btn btn-default" })
         </div>
     }
 </div>
+<!--Запутанная смесь встроенных стилей CSS и кода JavaScript решает один недостаток библиотеки Bootstrap: она стилизует элементы <input> типа file неподходящим образом. Доступно несколько расширений, добавляющих недостающую функциональность, но мы предпочли решение, показанное в примере выше, поскольку оно является самодостаточным и надежным. Оно не изменяет манеру функционирования MVC Framework, а только способ стилизации элементов в файле Edit.cshtml.-->
